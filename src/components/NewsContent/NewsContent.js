@@ -4,7 +4,7 @@ import Newscard from '../Newscard/Newscard'
 import "./NewsContent.css"
 
 // using "mui Container" for responsiveness
-function NewsContent({ newsArray, newsResults }) {
+function NewsContent({ newsArray, newsResults, setLoadMore, loadMore }) {
     return (
         <Container maxWidth="md">
             <div className="content">
@@ -40,6 +40,24 @@ function NewsContent({ newsArray, newsResults }) {
 
                     ))
                 }
+
+
+                {
+                    // if more than then loadmore Button will disappear
+                    loadMore <= newsResults && (
+                        <>
+
+                            <hr />
+                            <button className='loadMore'
+                                onClick={() => setLoadMore(loadMore + 20)}
+                            >
+                                LoadMore
+                            </button>
+                        </>
+                    )
+                }
+
+
 
             </div>
         </Container>

@@ -12,14 +12,16 @@ function App() {
   const [category, setCategory] = useState("general")
   const [newsArray, setNewsArray] = useState([])
   const [newsResults, setNewsResults] = useState()
+  const [loadMore, setLoadMore] = useState(20);
 
 
   // api request using axios
   const newApi = async () => {
     try {
 
+      // adding with pages 
       const news = await axios.get
-        (`https://newsapi.org/v2/top-headlines?country=in&apiKey=${apiKey}&category=${category}`);
+        (`https://newsapi.org/v2/top-headlines?country=in&apiKey=${apiKey}&category=${category}&pageSize=${loadMore}`);
 
       setNewsArray(news.data.articles)
       setNewsResults(news.data.totalResults)
@@ -33,7 +35,9 @@ function App() {
 
   useEffect(() => {
     newApi()
-  }, [newsResults, category])
+
+    // added loadMore as dependency as when loadmore changed again the api call
+  }, [newsResults, category, loadMore])
 
 
 
@@ -42,6 +46,8 @@ function App() {
       <Navbar setCategory={setCategory} />
 
       <NewsContent
+        loadMore={loadMore}
+        setLoadMore={setLoadMore}
         newsArray={newsArray}
         newsResults={newsResults}
       />
