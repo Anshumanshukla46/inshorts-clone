@@ -4,6 +4,7 @@ import "./App.css"
 import Navbar from './components/Navbar'
 import NewsContent from './components/NewsContent/NewsContent'
 import apiKey from './data/config';
+import Footer from "./components/footer/Footer"
 
 function App() {
 
@@ -20,18 +21,19 @@ function App() {
       const news = await axios.get
         (`https://newsapi.org/v2/top-headlines?country=in&apiKey=${apiKey}&category=${category}`);
 
-      console.log(news.data.articles);
+      setNewsArray(news.data.articles)
+      setNewsResults(news.data.totalResults)
 
     } catch (err) {
       console.log(err);
     }
   }
 
-
+  // console.log(newsArray);
 
   useEffect(() => {
     newApi()
-  }, [])
+  }, [newsResults, category])
 
 
 
@@ -39,7 +41,12 @@ function App() {
     <div>
       <Navbar setCategory={setCategory} />
 
-      <NewsContent />
+      <NewsContent
+        newsArray={newsArray}
+        newsResults={newsResults}
+      />
+
+      <Footer />
     </div>
   )
 }
