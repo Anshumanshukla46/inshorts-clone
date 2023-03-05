@@ -8,6 +8,7 @@ In addition, I have used modern front-end development practices, such as CSS mod
 
 I are committed to improving our app and are constantly exploring new ways to enhance its functionality and features. We hope you enjoy using our Inshort-Clone React app and look forward to your feedback and contributions to the project!
 
-<iframe>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/P6aHUE1XP5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</iframe>
+
+OUTPUt-
+
+https://user-images.githubusercontent.com/88917068/222945216-e34a6f16-7fc8-44aa-8811-e9ff875a9047.mp4
